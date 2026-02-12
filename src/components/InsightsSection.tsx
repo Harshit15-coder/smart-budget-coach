@@ -126,7 +126,7 @@ export const InsightsSection = () => {
         <h4 className="text-xl font-bold text-slate-900 dark:text-slate-100 mb-6">Category Efficiency</h4>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {['Food', 'Travel', 'Subscriptions', 'Shopping'].map((cat) => {
-            const amount = categoryTotals[cat] || 0;
+            const amount = categoryTotals[cat as keyof typeof categoryTotals] || 0;
             const percentage = totalSpent > 0 ? (amount / totalSpent) * 100 : 0;
             
             return (
